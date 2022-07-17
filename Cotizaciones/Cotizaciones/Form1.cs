@@ -37,5 +37,16 @@ namespace Cotizaciones
 
             Controlador.Cotizar(_precio, _cantidad);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Controlador.MostrarHistorial();
+
+        }
+
+        private void camisa_CheckedChanged(object sender, EventArgs e)
+        {
+            Controlador.ActualizarStock();
+        }
     }
 }

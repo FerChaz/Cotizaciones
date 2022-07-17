@@ -8,3 +8,4 @@ N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.cs
 N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.csproj.CoreCompileInputs.cache
 N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.exe
 N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.pdb
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.HistorialCotizaciones.resources

@@ -10,6 +10,7 @@ namespace Cotizaciones.Modelo
     {
         public string nombre;
         public string direccion;
+        public List<Vendedor> vendedores = new List<Vendedor>();
         public List<Prenda> prendasDisponibles = new List<Prenda>();
     }
 }

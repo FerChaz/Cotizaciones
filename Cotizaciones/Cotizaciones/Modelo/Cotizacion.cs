@@ -22,18 +22,20 @@ namespace Cotizaciones.Modelo
 
             nuevaCotizacion.codigoVendedor = codigoVendedor;
             nuevaCotizacion.numeroID = cantidadCotizacionesVendedor + 1;
-            nuevaCotizacion.fechaHora = new DateTime();
+            nuevaCotizacion.fechaHora = DateTime.Now;
 
-            nuevaCotizacion.prendaCotizada = prendaACotizar;
+            
             nuevaCotizacion.cantidadUnidadesCotizadas = cantidadACotizar;
 
             float precioCotizado = 0;
             if (prendaACotizar is Camisa)
             {
                 precioCotizado = Camisa.CotizacionCamisa((Camisa)prendaACotizar, precio);
+                nuevaCotizacion.prendaCotizada = (Camisa)prendaACotizar;
             } else
             {
                 precioCotizado = Pantalon.CotizacionPantalon((Pantalon)prendaACotizar, precio);
+                nuevaCotizacion.prendaCotizada = (Pantalon)prendaACotizar;
             }
 
             nuevaCotizacion.resultadoCotizacion = precioCotizado * cantidadACotizar;

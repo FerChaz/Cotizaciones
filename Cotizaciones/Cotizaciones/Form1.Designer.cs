@@ -99,12 +99,14 @@ namespace Cotizaciones
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(105, 142);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label3.Location = new System.Drawing.Point(99, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 27);
             this.label3.TabIndex = 4;
             this.label3.Text = "Historial Cotizaciones";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pantalon
             // 
@@ -129,6 +131,7 @@ namespace Cotizaciones
             this.camisa.TabStop = true;
             this.camisa.Text = "Camisa";
             this.camisa.UseVisualStyleBackColor = true;
+            this.camisa.CheckedChanged += new System.EventHandler(this.camisa_CheckedChanged);
             // 
             // mangaCorta
             // 
@@ -140,6 +143,7 @@ namespace Cotizaciones
             this.mangaCorta.TabIndex = 9;
             this.mangaCorta.Text = "Manga Corta";
             this.mangaCorta.UseVisualStyleBackColor = true;
+            this.mangaCorta.CheckedChanged += new System.EventHandler(this.camisa_CheckedChanged);
             // 
             // cuelloMao
             // 
@@ -151,6 +155,7 @@ namespace Cotizaciones
             this.cuelloMao.TabIndex = 10;
             this.cuelloMao.Text = "Cuello Mao";
             this.cuelloMao.UseVisualStyleBackColor = true;
+            this.cuelloMao.CheckedChanged += new System.EventHandler(this.camisa_CheckedChanged);
             // 
             // chupin
             // 
@@ -162,6 +167,7 @@ namespace Cotizaciones
             this.chupin.TabIndex = 11;
             this.chupin.Text = "Chupín";
             this.chupin.UseVisualStyleBackColor = true;
+            this.chupin.CheckedChanged += new System.EventHandler(this.camisa_CheckedChanged);
             // 
             // label4
             // 

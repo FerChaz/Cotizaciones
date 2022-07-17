@@ -11,8 +11,19 @@ namespace Cotizaciones.Control
     class Controlador
     {
         static Form1 ventana;
+        static HistorialCotizaciones historialCotizacionesView;
         static Tienda _tienda;
         static Vendedor _vendedor;
+
+
+        static string calidad;
+        static string prenda;
+        static bool esMao = false;
+        static bool esMangaCorta = false;
+        static bool esChupin = false; 
+        static Prenda prendaObj = null;
+
+
         public static void InicializarVentana(Tienda tienda, Vendedor vendedor)
         {
             _tienda = tienda;
@@ -31,13 +42,46 @@ namespace Cotizaciones.Control
 
         public static void Cotizar(float precio, int cantidad)
         {
-            string calidad = ((RadioButton)ventana.Controls["calidad"].Controls["standard"]).Checked ? "Standard" : "Premium";
-            string prenda = ((RadioButton)ventana.Controls["prenda"].Controls["camisa"]).Checked ? "camisa" : "pantalon"; 
-            bool esMao = false;
-            bool esMangaCorta = false;
-            bool esChupin = false;
+            ObtenerFormData();
 
-            Prenda prendaObj = null;
+            BuscarObjetoPrenda();
+
+            if (prendaObj.stock < cantidad)
+            {
+                MessageBox.Show("La cantidad a cotizar no puede ser mayor al stock disponible.");
+                return;
+            }
+
+            Cotizacion nuevaCotizacion = Cotizacion.Cotizar(prendaObj, cantidad, precio, _vendedor.codigoVendedor, _vendedor.historialCotizaciones.Count);
+
+            _vendedor.historialCotizaciones.Add(nuevaCotizacion);
+
+
+            ventana.Controls["resultado"].Text = nuevaCotizacion.resultadoCotizacion.ToString();
+        }
+
+        public static void MostrarHistorial()
+        {
+            historialCotizacionesView = new HistorialCotizaciones();
+            foreach (Cotizacion cotizacion in _vendedor.historialCotizaciones)
+            {
+                ListViewGroup item = new ListViewGroup(cotizacion.fechaHora.ToString() + " - Vendedor: " + cotizacion.codigoVendedor, HorizontalAlignment.Left);
+                ((ListView)historialCotizacionesView.Controls["listaHistorial"]).Items.Add(new ListViewItem("Prenda: " + cotizacion.prendaCotizada.GetType().Name, item));
+                ((ListView)historialCotizacionesView.Controls["listaHistorial"]).Items.Add(new ListViewItem("Cantidad: " + cotizacion.cantidadUnidadesCotizadas.ToString(), item));
+                ((ListView)historialCotizacionesView.Controls["listaHistorial"]).Items.Add(new ListViewItem("Precio: " + cotizacion.resultadoCotizacion, item));
+
+                ((ListView)historialCotizacionesView.Controls["listaHistorial"]).Groups.Add(item);
+            }
+            historialCotizacionesView.Show();
+        }
+
+        private static void ObtenerFormData()
+        {
+            calidad = ((RadioButton)ventana.Controls["calidad"].Controls["standard"]).Checked ? "Standard" : "Premium";
+            prenda = ((RadioButton)ventana.Controls["prenda"].Controls["camisa"]).Checked ? "camisa" : "pantalon";
+            esMao = false;
+            esMangaCorta = false;
+            esChupin = false;
 
             if (((CheckBox)ventana.Controls["prenda"].Controls["cuelloMao"]).Checked)
             {
@@ -66,7 +110,11 @@ namespace Cotizaciones.Control
                 }
                 esChupin = true;
             }
+        }
 
+        private static void BuscarObjetoPrenda()
+        {
+            prendaObj = null;
 
             if (prenda == "camisa")
             {
@@ -77,20 +125,13 @@ namespace Cotizaciones.Control
             {
                 prendaObj = _tienda.prendasDisponibles.Find(pantalon => pantalon is Pantalon && pantalon.calidad == calidad && ((Pantalon)pantalon).esChupin == esChupin);
             }
+        }
+        public static void ActualizarStock()
+        {
+            ObtenerFormData();
+            BuscarObjetoPrenda();
 
-            if (prendaObj.stock < cantidad)
-            {
-                MessageBox.Show("La cantidad a cotizar no puede ser mayor al stock disponible.");
-                return;
-            }
-
-
-            Cotizacion nuevaCotizacion = Cotizacion.Cotizar(prendaObj, cantidad, precio, _vendedor.codigoVendedor, _vendedor.historialCotizaciones.Count);
-
-            _vendedor.historialCotizaciones.Add(nuevaCotizacion);
-
-
-            ventana.Controls["resultado"].Text = nuevaCotizacion.resultadoCotizacion.ToString();
+            ventana.Controls["stock"].Text = prendaObj.stock.ToString();
         }
     }
 }
