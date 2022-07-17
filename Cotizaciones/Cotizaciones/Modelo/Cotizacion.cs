@@ -16,9 +16,29 @@ namespace Cotizaciones.Modelo
 
         public Prenda prendaCotizada;
 
-        public Cotizacion Cotizar(Prenda prendaACotizar, int cantidadACotizar, string codigoVendedor)
+        public static Cotizacion Cotizar(Prenda prendaACotizar, int cantidadACotizar, float precio, string codigoVendedor, int cantidadCotizacionesVendedor)
         {
-            return null;
+            Cotizacion nuevaCotizacion = new Cotizacion();
+
+            nuevaCotizacion.codigoVendedor = codigoVendedor;
+            nuevaCotizacion.numeroID = cantidadCotizacionesVendedor + 1;
+            nuevaCotizacion.fechaHora = new DateTime();
+
+            nuevaCotizacion.prendaCotizada = prendaACotizar;
+            nuevaCotizacion.cantidadUnidadesCotizadas = cantidadACotizar;
+
+            float precioCotizado = 0;
+            if (prendaACotizar is Camisa)
+            {
+                precioCotizado = Camisa.CotizacionCamisa((Camisa)prendaACotizar, precio);
+            } else
+            {
+                precioCotizado = Pantalon.CotizacionPantalon((Pantalon)prendaACotizar, precio);
+            }
+
+            nuevaCotizacion.resultadoCotizacion = precioCotizado * cantidadACotizar;
+
+            return nuevaCotizacion;
         }
     }
 }

@@ -43,17 +43,17 @@ namespace Cotizaciones
             this.stock = new System.Windows.Forms.Label();
             this.standard = new System.Windows.Forms.RadioButton();
             this.premium = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.precio = new System.Windows.Forms.TextBox();
+            this.cantidad = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.resultado = new System.Windows.Forms.Label();
+            this.calidad = new System.Windows.Forms.GroupBox();
+            this.prenda = new System.Windows.Forms.GroupBox();
+            this.calidad.SuspendLayout();
+            this.prenda.SuspendLayout();
             this.SuspendLayout();
             // 
             // nombreVendedor
@@ -70,7 +70,7 @@ namespace Cotizaciones
             // 
             this.idVendedor.AutoSize = true;
             this.idVendedor.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idVendedor.Location = new System.Drawing.Point(242, 90);
+            this.idVendedor.Location = new System.Drawing.Point(266, 90);
             this.idVendedor.Name = "idVendedor";
             this.idVendedor.Size = new System.Drawing.Size(139, 27);
             this.idVendedor.TabIndex = 1;
@@ -206,23 +206,22 @@ namespace Cotizaciones
             this.premium.TabIndex = 15;
             this.premium.Text = "Premium";
             this.premium.UseVisualStyleBackColor = true;
-            this.premium.CheckedChanged += new System.EventHandler(this.premium_CheckedChanged);
             // 
-            // textBox1
+            // precio
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(104, 441);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 33);
-            this.textBox1.TabIndex = 16;
+            this.precio.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precio.Location = new System.Drawing.Point(104, 441);
+            this.precio.Name = "precio";
+            this.precio.Size = new System.Drawing.Size(72, 33);
+            this.precio.TabIndex = 16;
             // 
-            // textBox2
+            // cantidad
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(303, 441);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(54, 33);
-            this.textBox2.TabIndex = 17;
+            this.cantidad.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cantidad.Location = new System.Drawing.Point(303, 441);
+            this.cantidad.Name = "cantidad";
+            this.cantidad.Size = new System.Drawing.Size(54, 33);
+            this.cantidad.TabIndex = 17;
             // 
             // label6
             // 
@@ -265,70 +264,70 @@ namespace Cotizaciones
             this.label8.TabIndex = 21;
             this.label8.Text = "$";
             // 
-            // label9
+            // resultado
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(223, 532);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 36);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "00";
+            this.resultado.AutoSize = true;
+            this.resultado.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultado.Location = new System.Drawing.Point(223, 532);
+            this.resultado.Name = "resultado";
+            this.resultado.Size = new System.Drawing.Size(49, 36);
+            this.resultado.TabIndex = 22;
+            this.resultado.Text = "00";
             // 
-            // groupBox1
+            // calidad
             // 
-            this.groupBox1.Controls.Add(this.premium);
-            this.groupBox1.Controls.Add(this.standard);
-            this.groupBox1.Location = new System.Drawing.Point(17, 350);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 76);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Calidad de Prenda";
+            this.calidad.Controls.Add(this.premium);
+            this.calidad.Controls.Add(this.standard);
+            this.calidad.Location = new System.Drawing.Point(17, 350);
+            this.calidad.Name = "calidad";
+            this.calidad.Size = new System.Drawing.Size(441, 76);
+            this.calidad.TabIndex = 23;
+            this.calidad.TabStop = false;
+            this.calidad.Text = "Calidad de Prenda";
             // 
-            // groupBox2
+            // prenda
             // 
-            this.groupBox2.Controls.Add(this.camisa);
-            this.groupBox2.Controls.Add(this.pantalon);
-            this.groupBox2.Controls.Add(this.mangaCorta);
-            this.groupBox2.Controls.Add(this.cuelloMao);
-            this.groupBox2.Controls.Add(this.chupin);
-            this.groupBox2.Location = new System.Drawing.Point(12, 172);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(446, 125);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Prenda";
+            this.prenda.Controls.Add(this.camisa);
+            this.prenda.Controls.Add(this.pantalon);
+            this.prenda.Controls.Add(this.mangaCorta);
+            this.prenda.Controls.Add(this.cuelloMao);
+            this.prenda.Controls.Add(this.chupin);
+            this.prenda.Location = new System.Drawing.Point(12, 172);
+            this.prenda.Name = "prenda";
+            this.prenda.Size = new System.Drawing.Size(446, 125);
+            this.prenda.TabIndex = 24;
+            this.prenda.TabStop = false;
+            this.prenda.Text = "Prenda";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 624);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.prenda);
+            this.Controls.Add(this.calidad);
+            this.Controls.Add(this.resultado);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.idVendedor);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cantidad);
+            this.Controls.Add(this.precio);
             this.Controls.Add(this.stock);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nombreTienda);
             this.Controls.Add(this.direccionTienda);
-            this.Controls.Add(this.idVendedor);
             this.Controls.Add(this.nombreVendedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.calidad.ResumeLayout(false);
+            this.calidad.PerformLayout();
+            this.prenda.ResumeLayout(false);
+            this.prenda.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,15 +349,15 @@ namespace Cotizaciones
         private System.Windows.Forms.Label stock;
         private System.Windows.Forms.RadioButton standard;
         private System.Windows.Forms.RadioButton premium;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox precio;
+        private System.Windows.Forms.TextBox cantidad;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label resultado;
+        private System.Windows.Forms.GroupBox calidad;
+        private System.Windows.Forms.GroupBox prenda;
     }
 }
 
