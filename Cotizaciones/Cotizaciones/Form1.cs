@@ -7,14 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cotizaciones.Control;
 
 namespace Cotizaciones
 {
     public partial class Form1 : Form
     {
+        string calidad = "standard";
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void premium_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

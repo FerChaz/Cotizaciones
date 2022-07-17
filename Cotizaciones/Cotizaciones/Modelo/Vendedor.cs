@@ -12,6 +12,6 @@ namespace Cotizaciones.Modelo
         public string apellido;
         public string codigoVendedor;
 
-        public List<int> historialCotizaciones;
+        public List<Cotizacion> historialCotizaciones = new List<Cotizacion>();
     }
 }

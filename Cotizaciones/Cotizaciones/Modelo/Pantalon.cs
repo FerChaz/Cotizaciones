@@ -8,6 +8,6 @@ namespace Cotizaciones.Modelo
 {
     class Pantalon : Prenda
     {
-        public string tipo;
+        public bool esChupin = false;
     }
 }

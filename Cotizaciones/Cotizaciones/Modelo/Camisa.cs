@@ -8,7 +8,7 @@ namespace Cotizaciones.Modelo
 {
     class Camisa : Prenda
     {
-        public string tipoManga;
-        public string tipoCuello;
+        public bool esMangaCorta = false;
+        public bool esCuelloMao = false;
     }
 }

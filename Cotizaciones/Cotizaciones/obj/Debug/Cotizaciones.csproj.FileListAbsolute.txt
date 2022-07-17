@@ -1,0 +1,10 @@
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\bin\Debug\Cotizaciones.exe.config
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\bin\Debug\Cotizaciones.exe
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\bin\Debug\Cotizaciones.pdb
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.csproj.AssemblyReference.cache
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.Form1.resources
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.Properties.Resources.resources
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.csproj.GenerateResource.cache
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.csproj.CoreCompileInputs.cache
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.exe
+N:\QuarkAcademy\Cotizaciones\Cotizaciones\Cotizaciones\obj\Debug\Cotizaciones.pdb

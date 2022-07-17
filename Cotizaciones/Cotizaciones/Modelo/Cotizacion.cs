@@ -15,5 +15,10 @@ namespace Cotizaciones.Modelo
         public float resultadoCotizacion;
 
         public Prenda prendaCotizada;
+
+        public Cotizacion Cotizar(Prenda prendaACotizar, int cantidadACotizar, string codigoVendedor)
+        {
+            return null;
+        }
     }
 }
